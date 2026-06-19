@@ -11,7 +11,6 @@ versionCatalogUpdatePlugin = "1.1.0"
 dokkaPlugin = "2.2.0"
 mavenPublishPlugin = "0.36.0"
 jreleaserPlugin = "1.24.0"
-binaryCompatibilityValidatorPlugin = "0.18.1"
 xemanticConventionsPlugin = "0.6.8"
 
 [libraries]
@@ -25,6 +24,5 @@ dokka = { id = "org.jetbrains.dokka", version.ref = "dokkaPlugin" }
 versions = { id = "com.github.ben-manes.versions", version.ref = "versionsPlugin" }
 version-catalog-update = { id = "nl.littlerobots.version-catalog-update", version.ref = "versionCatalogUpdatePlugin" }
 maven-publish = { id = "com.vanniktech.maven.publish", version.ref = "mavenPublishPlugin" }
-kotlinx-binary-compatibility-validator = { id = "org.jetbrains.kotlinx.binary-compatibility-validator", version.ref = "binaryCompatibilityValidatorPlugin" }
 jreleaser = { id = "org.jreleaser", version.ref = "jreleaserPlugin" }
 xemantic-conventions = { id = "com.xemantic.gradle.xemantic-conventions", version.ref = "xemanticConventionsPlugin" }
