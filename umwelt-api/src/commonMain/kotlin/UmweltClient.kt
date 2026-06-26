@@ -35,6 +35,9 @@ interface UmweltClient {
 
 interface UmweltSession {
 
+    /** The session's stable identifier — the handle for its underlying tab. */
+    val id: String
+
     suspend fun open(url: String)
 
     fun dump(): Flow<SemanticEvent>
