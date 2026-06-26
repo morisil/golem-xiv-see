@@ -21,7 +21,7 @@ package com.xemantic.umwelt.api
 import com.xemantic.markanywhere.SemanticEvent
 import kotlinx.coroutines.flow.Flow
 
-interface Umwelt {
+interface UmweltClient {
 
     suspend fun newSession(
         private: Boolean = true
