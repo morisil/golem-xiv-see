@@ -23,8 +23,10 @@ import kotlinx.coroutines.flow.Flow
 
 interface UmweltClient {
 
+    fun listProfiles(): Flow<String>
+
     suspend fun newSession(
-        private: Boolean = true
+        profile: String? = null
     ): UmweltSession
 
     fun listSessions(): Flow<UmweltSession>
