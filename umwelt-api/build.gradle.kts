@@ -15,13 +15,28 @@
  * along with this program.  If not, see <https://www.gnu.org/licenses/>.
  */
 
-package com.xemantic.golem
-
-// TODO replace with your code
-object Foo {
-    const val BAR: String = "buzz"
+plugins {
+    alias(libs.plugins.kotlin.multiplatform)
+    id("umwelt.convention")
 }
 
-fun main() {
-    print("Hello World!")
+kotlin {
+
+    jvm()
+    js {
+        binaries.library()
+    }
+    //macosArm64()
+
+    sourceSets {
+
+        commonMain {
+            dependencies {
+                api(libs.markanywhere.api)
+                api(libs.kotlinx.coroutines.core)
+            }
+        }
+
+    }
+
 }
