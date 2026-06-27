@@ -34,12 +34,12 @@ import kotlin.time.Clock
 import kotlin.time.Duration.Companion.seconds
 import kotlin.time.Instant
 
-class HealthCheckApiTest {
+class HealthCheckRoutesTest {
 
     private fun ApplicationTestBuilder.healthCheckApp() {
         application {
             serverContentNegotiation()
-            healthCheckApi()
+            healthCheckRoutes()
         }
         client = createClient {
             install(ContentNegotiation) {

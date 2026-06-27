@@ -25,7 +25,7 @@ import io.ktor.server.routing.get
 import io.ktor.server.routing.routing
 import kotlin.time.Clock
 
-fun Application.healthCheckApi() {
+fun Application.healthCheckRoutes() {
 
     routing {
 
