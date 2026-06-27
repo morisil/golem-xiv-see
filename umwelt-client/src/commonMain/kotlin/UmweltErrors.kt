@@ -56,7 +56,7 @@ fun HttpClientConfig<*>.installUmweltErrorDecoding() {
                 ?: return@handleResponseExceptionWithRequest
             val error = try {
                 errorJson.decodeFromString<UmweltError>(response.bodyAsText())
-            } catch (e: Exception) {
+            } catch (_: Exception) {
                 return@handleResponseExceptionWithRequest // not an UmweltError body
             }
             throw error.toException(cause)
