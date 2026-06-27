@@ -18,11 +18,14 @@
 
 package com.xemantic.umwelt.server
 
-import com.xemantic.kotlin.test.assert
+import com.xemantic.kotlin.test.have
 import com.xemantic.kotlin.test.sameAs
+import com.xemantic.kotlin.test.should
 import io.ktor.client.request.get
 import io.ktor.client.statement.bodyAsText
+import io.ktor.http.ContentType
 import io.ktor.http.HttpStatusCode
+import io.ktor.http.contentType
 import io.ktor.server.testing.testApplication
 import kotlin.test.Test
 
@@ -40,7 +43,10 @@ class StaticRoutesTest {
         val body = response.bodyAsText()
 
         // then
-        assert(response.status == HttpStatusCode.OK)
+        response should {
+            have(status == HttpStatusCode.OK)
+            have(contentType()!!.match(ContentType.Text.Html))
+        }
         body sameAs staticResources["index.html"]!!
     }
 
@@ -56,7 +62,10 @@ class StaticRoutesTest {
         val body = response.bodyAsText()
 
         // then
-        assert(response.status == HttpStatusCode.OK)
+        response should {
+            have(status == HttpStatusCode.OK)
+            have(contentType()!!.match(ContentType.Application.JavaScript))
+        }
         body sameAs staticResources["umwelt-web.js"]!!
     }
 

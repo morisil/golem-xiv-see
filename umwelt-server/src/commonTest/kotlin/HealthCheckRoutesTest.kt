@@ -49,7 +49,7 @@ class HealthCheckRoutesTest {
     }
 
     @Test
-    fun shouldReturnHealthyStatusWithTimestamp() = testApplication {
+    fun `should return healthy status with timestamp`() = testApplication {
         // given
         healthCheckApp()
         val now = Clock.System.now()
