@@ -1,5 +1,5 @@
 /*
- * Golem XIV See - See the web the way your AI agent sees it
+ * Umwelt - The web as your AI agent's Umwelt - every page transduced into the language a model natively perceives
  * Copyright (C) 2026  Kazimierz Pogoda / Xemantic
  *
  * This program is free software: you can redistribute it and/or modify
