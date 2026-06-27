@@ -64,7 +64,8 @@ class StaticRoutesTest {
         // then
         response should {
             have(status == HttpStatusCode.OK)
-            have(contentType()!!.match(ContentType.Application.JavaScript))
+            // pinned to text/javascript (RFC 9239) identically on JVM and native
+            have(contentType()!!.match(ContentType.Text.JavaScript))
         }
         body sameAs staticResources["umwelt-web.js"]!!
     }

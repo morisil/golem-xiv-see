@@ -42,7 +42,7 @@ fun Application.staticRoutes() {
     routing {
 
         staticResources.forEach { (path, content) ->
-            val contentType = ContentType.defaultForFilePath(path)
+            val contentType = contentTypeForPath(path)
             get("/$path") {
                 call.respondText(content, contentType)
             }
@@ -55,4 +55,25 @@ fun Application.staticRoutes() {
 
     }
 
+}
+
+/**
+ * The [ContentType] to serve [path] with, pinned for the web extensions in the
+ * embedded bundle so the headers are identical on JVM and native.
+ *
+ * [ContentType.defaultForFilePath] consults a per-platform MIME database that
+ * disagrees on some extensions — notably `.js`, which resolves to
+ * `application/javascript` on JVM but `text/javascript` (the RFC 9239 standard)
+ * on native — so it is used only as the fallback for anything not pinned here.
+ */
+private fun contentTypeForPath(
+    path: String
+): ContentType = when (path.substringAfterLast('.', "")) {
+    "html" -> ContentType.Text.Html
+    "css" -> ContentType.Text.CSS
+    "js" -> ContentType.Text.JavaScript
+    "json" -> ContentType.Application.Json
+    "svg" -> ContentType.Image.SVG
+    "txt" -> ContentType.Text.Plain
+    else -> ContentType.defaultForFilePath(path)
 }
