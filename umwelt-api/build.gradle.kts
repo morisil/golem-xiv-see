@@ -25,9 +25,11 @@ plugins {
 kotlin {
 
     jvm()
+
     js {
         browser()
     }
+
     macosArm64()
 
     sourceSets {
