@@ -34,9 +34,7 @@ class StaticRoutesTest {
     @Test
     fun `should serve index html on root path`() = testApplication {
         // given
-        application {
-            staticRoutes()
-        }
+        umweltTestApp()
 
         // when
         val response = client.get("/")
@@ -53,9 +51,7 @@ class StaticRoutesTest {
     @Test
     fun `should serve the compiled js bundle`() = testApplication {
         // given
-        application {
-            staticRoutes()
-        }
+        umweltTestApp()
 
         // when
         val response = client.get("/umwelt-web.js")
