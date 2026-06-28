@@ -22,13 +22,21 @@ import io.ktor.http.ContentType
 
 /**
  * `text/markdown` — the content type of every Markdown page dump this server
- * serves. Defined as an extension on [ContentType.Text] (which has no built-in
- * `Markdown`) so it reads like Ktor's own `ContentType.Text.Html` at every call
- * site, including the tests that assert against it.
+ * serves. Defined as an extension on [ContentType.Text].
  */
-val ContentType.Text.Markdown: ContentType get() = ContentType("text", "markdown")
+val ContentType.Text.Markdown: ContentType get() =
+    ContentType("text", "markdown")
 
-/** Newline-delimited JSON — the wire format for the `SemanticEvent` dump stream. */
-val ContentType.Application.NDJSON: ContentType get() = ContentType("application", "x-ndjson")
+/**
+ * `application/x-ndjson` — newline-delimited JSON, the wire format for the
+ * `SemanticEvent` dump stream. Defined as an extension on [ContentType.Application].
+ */
+val ContentType.Application.NDJSON: ContentType get() =
+    ContentType("application", "x-ndjson")
 
-val ContentType.MultiPart.MixedReplace: ContentType get() = ContentType("multipart", "x-mixed-replace")
+/**
+ * `multipart/x-mixed-replace` — the content type of the MJPEG tab stream. Defined
+ * as an extension on [ContentType.MultiPart].
+ */
+val ContentType.MultiPart.MixedReplace: ContentType get() =
+    ContentType("multipart", "x-mixed-replace")
