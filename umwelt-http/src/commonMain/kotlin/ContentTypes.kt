@@ -16,6 +16,8 @@
  * along with this program.  If not, see <https://www.gnu.org/licenses/>.
  */
 
+package com.xemantic.umwelt.http
+
 // additional content types not defined by ktor
 
 import io.ktor.http.ContentType
