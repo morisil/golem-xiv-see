@@ -21,13 +21,10 @@ package com.xemantic.umwelt.server
 import com.xemantic.kotlin.test.have
 import com.xemantic.kotlin.test.should
 import io.ktor.client.call.body
-import io.ktor.client.plugins.contentnegotiation.ContentNegotiation
 import io.ktor.client.request.get
 import io.ktor.http.ContentType
 import io.ktor.http.HttpStatusCode
 import io.ktor.http.contentType
-import io.ktor.serialization.kotlinx.json.json
-import io.ktor.server.testing.ApplicationTestBuilder
 import io.ktor.server.testing.testApplication
 import kotlin.test.Test
 import kotlin.time.Clock
@@ -36,34 +33,21 @@ import kotlin.time.Instant
 
 class HealthCheckRoutesTest {
 
-    private fun ApplicationTestBuilder.healthCheckApp() {
-        application {
-            serverContentNegotiation()
-            healthCheckRoutes()
-        }
-        client = createClient {
-            install(ContentNegotiation) {
-                json()
-            }
-        }
-    }
-
     @Test
     fun `should return healthy status with timestamp`() = testApplication {
         // given
-        healthCheckApp()
+        umweltTestApp()
         val now = Clock.System.now()
 
         // when
         val response = client.get("/health")
-        val payload = response.body<Map<String, String>>()
 
         // then
         response should {
             have(status == HttpStatusCode.OK)
             have(contentType()!!.match(ContentType.Application.Json))
         }
-        payload should {
+        response.body<Map<String, String>>() should {
             have(get("status") == "healthy")
             val timestampString = get("timestamp")
             have(timestampString != null)
