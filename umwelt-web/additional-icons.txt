@@ -1,0 +1,10 @@
+# Icons that are not matched by the icon("foo") pattern in Kotlin sources
+menu_open
+dark_mode
+light_mode
+# NavItem icons defined as data in umwelt-viewmodel navItems()
+info
+travel_explore
+tab
+smart_toy
+settings
