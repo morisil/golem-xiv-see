@@ -16,7 +16,7 @@
  * along with this program.  If not, see <https://www.gnu.org/licenses/>.
  */
 
-package com.xemantic.umwelt.web.common
+package com.xemantic.umwelt.web.common.events
 
 import kotlinx.coroutines.channels.Channel
 import kotlinx.coroutines.channels.awaitClose
@@ -48,7 +48,7 @@ import org.w3c.dom.events.UIEvent
  * attach a listener directly for such cases.
  *
  * The event type [T] is not verified at runtime — it must match what the browser
- * dispatches for [type]. Prefer the typed wrappers like [Window.resizes].
+ * dispatches for [type]. Prefer the typed wrappers like [resizes].
  *
  * @param type the DOM event type to listen for.
  * @param capacity the buffer capacity between the DOM listener and the collector.

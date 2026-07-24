@@ -16,7 +16,7 @@
  * along with this program.  If not, see <https://www.gnu.org/licenses/>.
  */
 
-package com.xemantic.umwelt.web.common
+package com.xemantic.umwelt.web.common.events
 
 import com.xemantic.kotlin.js.dom.NodeBuilder
 import org.w3c.dom.GlobalEventHandlers
